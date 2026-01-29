@@ -61,6 +61,38 @@
       .a4page ul {
         list-style-position: inside;
       }
+      #tools {
+        display: flex;
+        justify-content: center;
+        margin: 10mm;
+      }
+      #tools button {
+        border: 1px solid black;
+        padding: 6px 12px;
+        background: white;
+        color: black;
+        font-size: 12pt;
+        cursor: pointer;
+      }
+      @media print {
+        body {
+          background: white;
+        }
+        body * {
+          visibility: hidden;
+        }
+        #export,
+        #export * {
+          visibility: visible;
+        }
+        #export,
+        .a4page {
+          margin: 0;
+        }
+        #tools {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -446,7 +478,7 @@
       </div>
     </div>
     <div id="tools">
-      
+      <button type="button" onclick="window.print()">Print</button>
     </div>
   </body>
 </html>
