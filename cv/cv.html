@@ -14,6 +14,8 @@
       body {
         background-color: antiquewhite;
       }
+
+      /* Exported content */
       #export {
         width: 210mm;
         min-height: 297mm;
@@ -24,13 +26,13 @@
       .a4page {
         width: 210mm;
         height: 297mm;
-        padding: 15mm;
+        padding: 10mm;
         box-sizing: border-box;
         background: white;
         color: black;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 8pt;
-        line-height: 1.2;
+        line-height: 1.25;
 
         margin: 10mm 0;
       }
@@ -46,7 +48,7 @@
       .a4page p,
       .a4page hr,
       .a4page div {
-        margin: 0.9mm;
+        margin: 1mm;
         padding: 0;
       }
       .a4page h1 {
@@ -61,6 +63,8 @@
       .a4page ul {
         list-style-position: inside;
       }
+
+      /* Not exported */
       #tools {
         display: flex;
         justify-content: center;
@@ -74,6 +78,8 @@
         font-size: 12pt;
         cursor: pointer;
       }
+
+      /* Print styles */
       @media print {
         body {
           background: white;
