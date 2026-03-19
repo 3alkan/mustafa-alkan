@@ -1,7 +1,7 @@
 <!-- 
     Title: MUSTAFA ALKAN CV
     Created At: 2026-01-28 18:00:00
-    Updated At: 2026-01-29 03:28:00
+    Updated At: 2026-03-19 14:03:53
 -->
 <!doctype html>
 <html lang="en">
@@ -11,35 +11,82 @@
     <title>MUSTAFA ALKAN CV</title>
 
     <style>
+      :root {
+        /* USER SETTINGS
+           Most users only need to change the values in this block. */
+
+        /* Page size and spacing */
+        --page-width: 210mm;
+        --page-height: 297mm;
+        --page-padding: 10mm;
+        --preview-margin: 10mm;
+        --content-spacing: 1mm;
+
+        /* Typography */
+        --base-font-family: Arial, Helvetica, sans-serif;
+        --base-font-size: 8pt;
+        --base-line-height: 1.25;
+        --name-font-size: 10pt;
+        --section-title-font-size: 9pt;
+
+        /* Colors */
+        --screen-background: antiquewhite;
+        --page-background: white;
+        --text-color: black;
+        --link-color: darkblue;
+
+        /* Usable content area guide (screen only) */
+        --guide-border-width: 0.4mm;
+        --guide-border-style: dashed;
+        --guide-border-color: rgba(220, 20, 60, 0.75);
+
+        /* Tool button */
+        --tool-button-font-size: 12pt;
+        --tool-button-padding: 6px 12px;
+      }
+
+      /* Page / layout structure */
       body {
-        background-color: antiquewhite;
+        margin: 0;
+        background-color: var(--screen-background);
       }
 
-      /* Exported content */
       #export {
-        width: 210mm;
-        min-height: 297mm;
+        width: var(--page-width);
+        min-height: var(--page-height);
+        margin: var(--preview-margin) auto;
         padding: 0;
-
-        margin: 10mm auto;
       }
+
       .a4page {
-        width: 210mm;
-        height: 297mm;
-        padding: 10mm;
+        position: relative;
+        width: var(--page-width);
+        height: var(--page-height);
+        margin: var(--preview-margin) 0;
+        padding: var(--page-padding);
         box-sizing: border-box;
-        background: white;
-        color: black;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 8pt;
-        line-height: 1.25;
-
-        margin: 10mm 0;
+        background: var(--page-background);
+        color: var(--text-color);
+        font-family: var(--base-font-family);
+        font-size: var(--base-font-size);
+        line-height: var(--base-line-height);
       }
+
+      .a4page::after {
+        content: "";
+        position: absolute;
+        inset: var(--page-padding);
+        border: var(--guide-border-width) var(--guide-border-style)
+          var(--guide-border-color);
+        pointer-events: none;
+      }
+
+      /* Typography / content defaults */
       .a4page a {
-        color: darkblue;
+        color: var(--link-color);
         text-decoration: none;
       }
+
       .a4page h1,
       .a4page h2,
       .a4page section,
@@ -48,53 +95,66 @@
       .a4page p,
       .a4page hr,
       .a4page div {
-        margin: 1mm;
+        margin: var(--content-spacing);
         padding: 0;
       }
+
       .a4page h1 {
-        font-size: 10pt;
+        font-size: var(--name-font-size);
       }
+
       .a4page h2 {
-        font-size: 9pt;
+        font-size: var(--section-title-font-size);
       }
-      .a4page .bold {
-        font-weight: bold;
-      }
+
       .a4page ul {
         list-style-position: inside;
       }
 
-      /* Not exported */
+      /* Utility rules */
+      .a4page .bold {
+        font-weight: bold;
+      }
+
       #tools {
         display: flex;
         justify-content: center;
-        margin: 10mm;
+        margin: var(--preview-margin);
       }
+
       #tools button {
         border: 1px solid black;
-        padding: 6px 12px;
+        padding: var(--tool-button-padding);
         background: white;
         color: black;
-        font-size: 12pt;
+        font-size: var(--tool-button-font-size);
         cursor: pointer;
       }
 
-      /* Print styles */
+      /* Print rules */
       @media print {
         body {
           background: white;
         }
+
         body * {
           visibility: hidden;
         }
+
         #export,
         #export * {
           visibility: visible;
         }
+
         #export,
         .a4page {
           margin: 0;
         }
+
+        .a4page::after {
+          display: none;
+        }
+
         #tools {
           display: none;
         }
